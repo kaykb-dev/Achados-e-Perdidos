@@ -20,3 +20,4 @@ class Objeto:
         return self._status
     def exibir_detalhes(self) -> str:
         return f"===Dados do Objeto===\nID: {self._id}\nNome: {self._nome}\nDescrição: {self._descricao}\nCategoria: {self._categoria}\nCor: {self._cor}\nStatus: {self._status}"
+    

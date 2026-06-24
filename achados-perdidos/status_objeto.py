@@ -11,3 +11,4 @@ class StatusObjeto:
         return self._descricao
     def _str_(self) -> str:
         return f"ID de status: {self._id}\nNome do status: {self._nome}\nDescrição do status: {self._descricao}"
+    

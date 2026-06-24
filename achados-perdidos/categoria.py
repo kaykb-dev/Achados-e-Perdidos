@@ -8,3 +8,4 @@ class Categoria:
         return self._nome
     def _str_(self) -> str:
         return f"ID de categoria: {self._id}\nNome da categoria: {self._nome}"
+    
