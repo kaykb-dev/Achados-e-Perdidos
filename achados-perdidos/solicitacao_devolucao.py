@@ -25,3 +25,4 @@ class SolicitacaoDevolucao:
             f"Status: {self._status}\n"
             f"Data de Resolução: {self._data_resolucao}"
         )
+    

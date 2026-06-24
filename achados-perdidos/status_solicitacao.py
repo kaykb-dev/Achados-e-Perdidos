@@ -19,3 +19,4 @@ class StatusSolicitacao:
             f"Nome: {self._nome}\n"
             f"Descrição: {self._descricao}"
         )
+    

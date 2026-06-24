@@ -20,3 +20,4 @@ class Correspondencia:
             f"Data da análise: {self._data_analise}\n"
             f"Status: {self._status}"
         )
+    
