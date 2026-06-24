@@ -1,6 +1,6 @@
 
 class ObjetoEncontrado(Objeto):
-    def _init_(self, id: int, nome: str, descricao: str, categoria: Categoria, cor: str, status: StatusObjeto, 
+    def __init__(self, id: int, nome: str, descricao: str, categoria: Categoria, cor: str, status: StatusObjeto, 
                  local_encontro: str, data_encontro: str, observacoes: str):
         super()._init_(id, nome, descricao, categoria, cor, status)
         self._local_encontro: str = local_encontro

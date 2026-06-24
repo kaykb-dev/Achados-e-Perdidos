@@ -1,5 +1,5 @@
 class Usuario:
-    def _init_(self, id: int, nome: str, telefone: str, email: str, data_cadastro: str):
+    def __init__(self, id: int, nome: str, telefone: str, email: str, data_cadastro: str):
         self._id = id
         self._nome = nome
         self._telefone = telefone

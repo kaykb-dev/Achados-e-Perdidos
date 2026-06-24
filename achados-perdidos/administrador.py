@@ -1,5 +1,5 @@
 class Administrador(Usuario):
-    def _init_(self, id: int, nome: str, telefone: str, email: str, data_cadastro: str, nivel_acesso: str):
+    def __init__(self, id: int, nome: str, telefone: str, email: str, data_cadastro: str, nivel_acesso: str):
         super()._init_(id, nome, telefone, email, data_cadastro)
         self._nivel_acesso: str = nivel_acesso
 

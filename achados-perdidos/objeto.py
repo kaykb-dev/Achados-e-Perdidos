@@ -1,5 +1,5 @@
 class Objeto:
-    def _init_(self, id: int, nome: str, descricao: str, categoria: Categoria, cor: str, status: StatusObjeto):
+    def __init__(self, id: int, nome: str, descricao: str, categoria: Categoria, cor: str, status: StatusObjeto):
         self._id = id
         self._nome = nome
         self._descricao = descricao

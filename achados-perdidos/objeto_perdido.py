@@ -1,7 +1,7 @@
 class ObjetoPerdido(Objeto):
-    def _init_(self, id: int, nome: str, descricao: str, categoria: Categoria, cor: str, status: StatusObjeto, 
+    def __init__(self, id: int, nome: str, descricao: str, categoria: Categoria, cor: str, status: StatusObjeto, 
                  local_perda: str, data_perda: str, observacoes: str):
-        super()._init_(id, nome, descricao, categoria, cor, status)
+        super().__init__(id, nome, descricao, categoria, cor, status)
         self._local_perda: str = local_perda
         self._data_perda: str = data_perda
         self._observacoes: str = observacoes
