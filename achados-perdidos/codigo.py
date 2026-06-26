@@ -242,3 +242,4 @@ class SistemaAchadosPerdidos:
 
     def emitir_relatorio(self, tipo):
         return Relatorio(tipo)
+    
