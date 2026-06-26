@@ -16,23 +16,31 @@ class Usuario:
     def atualizar_dados(self, nome, telefone, email) -> None:
         pass
 
-class Administrador(Usuario):
-    def __init__(self, id: int, nome: str, telefone: str, email: str, data_cadastro: str, nivel_acesso: str):
-        super().__init__(id, nome, telefone, email, data_cadastro)
-        self._nivel_acesso: str = nivel_acesso
-
-    def aprovar_devolucao(self, sol) -> None:
-        pass
-
-    def rejeitar_devolucao(self, sol) -> None:
-        pass
-
-    def remover_registro(self, obj: Objeto) -> None:
-        pass
-
-    def gerar_relatorio(self):
-        pass
-
+class Categoria:
+    def __init__(self, id: int, nome: str):
+        self._id = id
+        self._nome = nome
+    def get_id(self) -> int:
+        return self._id
+    def get_nome(self) -> str:
+        return self._nome
+    def __str__(self) -> str:
+        return f"ID de categoria: {self._id}\nNome da categoria: {self._nome}"
+    
+class StatusObjeto:
+    def __init__(self, id: int, nome: str, descricao: str):
+        self._id = id
+        self._nome = nome
+        self._descricao = descricao
+    def get_id(self) -> int:
+        return self._id
+    def get_nome(self) -> str:
+        return self._nome
+    def get_descricao(self) -> str:
+        return self._descricao
+    def __str__(self) -> str:
+        return f"ID de status: {self._id}\nNome do status: {self._nome}\nDescrição do status: {self._descricao}"  
+      
 class Objeto:
     def __init__(self, id: int, nome: str, descricao: str, categoria: Categoria, cor: str, status: StatusObjeto):
         self._id = id
@@ -56,6 +64,19 @@ class Objeto:
     def exibir_detalhes(self) -> str:
         return f"===Dados do Objeto===\nID: {self._id}\nNome: {self._nome}\nDescrição: {self._descricao}\nCategoria: {self._categoria}\nCor: {self._cor}\nStatus: {self._status}"
     
+class Administrador(Usuario):
+    def __init__(self, id: int, nome: str, telefone: str, email: str, data_cadastro: str, nivel_acesso: str):
+        super().__init__(id, nome, telefone, email, data_cadastro)
+        self._nivel_acesso: str = nivel_acesso
+    def aprovar_devolucao(self, sol) -> None:
+        pass
+    def rejeitar_devolucao(self, sol) -> None:
+        pass
+    def remover_registro(self, obj: Objeto) -> None:
+        pass
+    def gerar_relatorio(self):
+        pass
+
 class ObjetoEncontrado(Objeto):
     def __init__(self, id: int, nome: str, descricao: str, categoria: Categoria, cor: str, status: StatusObjeto, 
                  local_encontro: str, data_encontro: str, observacoes: str):
@@ -87,32 +108,7 @@ class ObjetoPerdido(Objeto):
         detalhes_base = super().exibir_detalhes()
         detalhes_especificos = f"\nLocal da Perda: {self._local_perda}\nData da Perda: {self._data_perda}\nObservações: {self._observacoes}"
         return detalhes_base + detalhes_especificos
-
-class Categoria:
-    def __init__(self, id: int, nome: str):
-        self._id = id
-        self._nome = nome
-    def get_id(self) -> int:
-        return self._id
-    def get_nome(self) -> str:
-        return self._nome
-    def __str__(self) -> str:
-        return f"ID de categoria: {self._id}\nNome da categoria: {self._nome}"
-    
-class StatusObjeto:
-    def __init__(self, id: int, nome: str, descricao: str):
-        self._id = id
-        self._nome = nome
-        self._descricao = descricao
-    def get_id(self) -> int:
-        return self._id
-    def get_nome(self) -> str:
-        return self._nome
-    def get_descricao(self) -> str:
-        return self._descricao
-    def __str__(self) -> str:
-        return f"ID de status: {self._id}\nNome do status: {self._nome}\nDescrição do status: {self._descricao}"
-    
+  
 from status_correspondencia import StatusCorrespondencia
 
 class Correspondencia:
@@ -135,6 +131,24 @@ class Correspondencia:
     def exibir_detalhes(self) -> str:
         return (f"=== Correspondência ===\n"f"ID: {self._id}\n"f"Compatibilidade: {self._porcentagem_compatibilidade}%\n"f"Data da análise: {self._data_analise}\n"f"Status: {self._status}")
     
+class StatusSolicitacao:
+    def __init__(self, id: int, nome: str, descricao: str):
+        self._id = id
+        self._nome = nome
+        self._descricao = descricao
+    def get_id(self) -> int:
+        return self._id
+    def get_nome(self) -> str:
+        return self._nome
+    def get_descricao(self) -> str:
+        return self._descricao
+    def __str__(self) -> str:
+        return (
+            f"ID: {self._id}\n"
+            f"Nome: {self._nome}\n"
+            f"Descrição: {self._descricao}"
+        )
+
 class SolicitacaoDevolucao:
 
     def __init__(self, id: int, data_solicitacao: str, justificativa: str, status: StatusSolicitacao, data_resolucao: str = ""):
@@ -178,27 +192,7 @@ class Notificacao:
     def enviar(self, destinatario):
         print(f"Notificação enviada para {destinatario.get_nome()}.")
 
-class StatusSolicitacao:
-    def __init__(self, id: int, nome: str, descricao: str):
-        self._id = id
-        self._nome = nome
-        self._descricao = descricao
 
-    def get_id(self) -> int:
-        return self._id
-
-    def get_nome(self) -> str:
-        return self._nome
-
-    def get_descricao(self) -> str:
-        return self._descricao
-
-    def __str__(self) -> str:
-        return (
-            f"ID: {self._id}\n"
-            f"Nome: {self._nome}\n"
-            f"Descrição: {self._descricao}"
-        )
 
 class Relatorio:
 
